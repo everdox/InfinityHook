@@ -7,4 +7,4 @@ Is InfinityHook an exploit? Probably, but due to the nature of it needing to be 
 
 Due to its subtle nature, InfinityHook also works underneath VBS, HVCI and Hyperguard. 
 
-InfinityHook stands to be one of the best tools in the rootkit aresenal over the last decade.
+InfinityHook stands to be one of the best tools in the rootkit arsenal over the last decade.
