@@ -1,6 +1,6 @@
 # InfinityHook
 
-(/resources/hiding_file.gif)
+![Hiding file example](/resources/hiding_file.gif)
 
 ## Usage
 The sample in this repository is a kernel driver that will hook system calls for you. It is extremely easy to use and requires you to call a single API. Please read below for usage instructions. We leave it upon the reader to decipher the implementation details and create hooks for other events like context switches, page faults, and DPCs. The comments embedded in the source files can help you toward this task.
@@ -13,8 +13,7 @@ Call `IfhInitialize`. You will need to pass a function pointer to a user-defined
 ```
 
 Your callback should be of this type:
-```
-C++
+```C++
 typedef void (__fastcall* INFINITYHOOKCALLBACK)(_In_ unsigned int SystemCallIndex, _Inout_ void** SystemCallFunction);
 ```
 
@@ -189,9 +188,9 @@ First, we choose to hijack the circular kernel context logger session because it
 
 After this, we walk up the stack to locate magic values, in order to filter out the fact that this is not a syscall exit being logged. We grab `SystemCallNumber` saved into the current `_KTHREAD` from logic in `KiSystemCall64`. The real magic here occurs because prior to `KiSystemCall64` invoking `PerfInfoLogSyscallEntry`, it saves the resolved system call target pointer on the stack. We locate this pointer for you and, if you so choose, you are able to overwrite it in your handler. 
 
-(/resource/perf.png)
+![PerfInfoLogSyscallEntry](/resources/perf.png)
 
-(/resource/infinityhook_log.gif)
+![Logging syscalls](/resources/infinityhook_log.gif)
 
 The sample code provided is for system calls only, and as mentioned above, it's up to the reader to implement it for other events. This sample was also only quickly whipped up and tested for 1903 and 1803. The stack walk function may need to be tweaked for earlier Windows 10 builds and 7/8.
 
