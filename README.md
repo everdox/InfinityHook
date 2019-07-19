@@ -1,3 +1,8 @@
+Hook system calls, context switches, page faults, DPCs and more. InfinityHook works along side Patchguard and VBS/Hyperguard to subtly hook various kernel events. InfinityHook is incredibly portable and stealthy, it works in all versions of Windows 7 to the latest versions of Windows 10. 
+
+InfinityHook stands to be one of the best tools in the rootkit arsenal over the last decade.
+
+
 # InfinityHook
 
 ![Hiding file example](/resources/hiding_file.gif)
