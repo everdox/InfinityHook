@@ -108,7 +108,7 @@ void __fastcall SyscallStub(
 	if (*SystemCallFunction == OriginalNtCreateFile)
 	{
 		//
-		// We can the return address on the stack to our detoured
+		// We can overwrite the return address on the stack to our detoured
 		// NtCreateFile.
 		//
 		*SystemCallFunction = DetourNtCreateFile;
