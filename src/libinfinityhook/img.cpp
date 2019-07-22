@@ -98,6 +98,8 @@ PVOID ImgGetBaseAddress(
 			return ModuleInformation->ImageBase;
 		}
 	}
+	
+	ExFreePool(Buffer);
 
 	return NULL;
 }
