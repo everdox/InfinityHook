@@ -34,7 +34,12 @@ const void* MmSearchMemory(
 	}
 
 	PCHAR Memory = (PCHAR)Buffer;
-	for (size_t i = 0; i < (SizeOfBuffer - SizeOfSignature); ++i)
+	
+	//
+	// The +1 is necessary or there will be an off-by-one error. 
+	// Thanks to @milabs for reporting.
+	//
+	for (size_t i = 0; i < ((SizeOfBuffer - SizeOfSignature) + 1); ++i)
 	{
 		if (!memcmp(&Memory[i], Signature, SizeOfSignature))
 		{ 

@@ -376,7 +376,21 @@ static BOOLEAN IfhpResolveSymbols()
 	EtwpDebuggerData = MmSearchMemory(SectionBase, SizeOfSection, EtwpDebuggerDataPattern, RTL_NUMBER_OF(EtwpDebuggerDataPattern));
 	if (!EtwpDebuggerData)
 	{
-		return FALSE;
+		//
+		// Check inside of .rdata too... this is true for Windows 7.
+		// Thanks to @ivanpos2015 for reporting.
+		//
+		SectionBase = ImgGetImageSection(NtBaseAddress, ".rdata", &SizeOfSection);
+		if (!SectionBase)
+		{
+			return FALSE;
+		}
+
+		EtwpDebuggerData = MmSearchMemory(SectionBase, SizeOfSection, EtwpDebuggerDataPattern, RTL_NUMBER_OF(EtwpDebuggerDataPattern));
+		if (!EtwpDebuggerData)
+		{
+			return FALSE;
+		}
 	}
 
 	// 
