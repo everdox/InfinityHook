@@ -197,6 +197,4 @@ After this, we walk up the stack to locate magic values, in order to filter out 
 
 ![Logging syscalls](/resources/infinityhook_log.gif)
 
-The sample code provided is for system calls only, and as mentioned above, it's up to the reader to implement it for other events. This sample was also only quickly whipped up and tested for 1903 and 1803. The stack walk function may need to be tweaked for earlier Windows 10 builds and 7/8.
-
-We could have just ripped examples from the products that have used `InfinityHook` for the last 7 years but that wouldn't be fair ;).
+The sample code provided is for system calls only, and as mentioned above, it's up to the reader to implement it for other events. This sample was also only quickly whipped up and tested for 1903 and 1803. The stack walk function may need to be tweaked for earlier Windows 10 builds and 7.
