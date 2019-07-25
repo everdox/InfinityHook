@@ -94,6 +94,8 @@ PVOID ImgGetBaseAddress(
 			{
 				*SizeOfImage = ModuleInformation->ImageSize;
 			}
+			
+			PVOID ImageBase = ModuleInformation->ImageBase;
 
 			//
 			// Free the buffer. Thanks to @tandasat for catching my 
@@ -101,7 +103,7 @@ PVOID ImgGetBaseAddress(
 			//
 			ExFreePool(Buffer);
 
-			return ModuleInformation->ImageBase;
+			return ImageBase;
 		}
 	}
 	
