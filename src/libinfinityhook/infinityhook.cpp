@@ -31,7 +31,7 @@ enum CKCL_TRACE_OPERATION
 //
 // To enable/disable tracing on the circular kernel context logger.
 //
-typedef struct _CKCL_TRACE_PROPERIES: EVENT_TRACE_PROPERTIES
+typedef struct _CKCL_TRACE_PROPERTIES: EVENT_TRACE_PROPERTIES
 {
 	ULONG64					Unknown[3];
 	UNICODE_STRING			ProviderName;
